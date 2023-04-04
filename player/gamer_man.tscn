@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3juya7mh4r8y"]
+[gd_scene load_steps=10 format=3 uid="uid://c3juya7mh4r8y"]
 
 [ext_resource type="Script" path="res://player/gamer_man.gd" id="1_4hqh8"]
 
@@ -101,12 +101,20 @@ _data = {
 "walkUp": SubResource("Animation_6j0ft")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1o6j"]
+size = Vector2(12, 10)
+
 [node name="GamerMan" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_4hqh8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 texture = SubResource("CompressedTexture2D_wjjwb")
+offset = Vector2(0, -8)
 hframes = 4
 vframes = 7
 
@@ -115,3 +123,7 @@ root_node = NodePath("../Sprite2D")
 libraries = {
 "": SubResource("AnimationLibrary_vqmpp")
 }
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("RectangleShape2D_b1o6j")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2wgm1k7f26vd"]
+[gd_scene load_steps=9 format=3 uid="uid://d2wgm1k7f26vd"]
 
 [ext_resource type="PackedScene" uid="uid://c3juya7mh4r8y" path="res://player/gamer_man.tscn" id="1_14rgu"]
 [ext_resource type="Texture2D" uid="uid://dy0ebky01feqo" path="res://art/levels/world/TilesetFloor.png" id="2_0phph"]
 [ext_resource type="Texture2D" uid="uid://84bsdbfxuk0y" path="res://art/levels/world/TilesetNature.png" id="3_a7cwl"]
 [ext_resource type="Script" path="res://player/PlayerFollowCam.gd" id="4_akbhy"]
+[ext_resource type="PackedScene" uid="uid://opm6yh47u6vs" path="res://monsters/snake.tscn" id="5_uyc3f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qpy4w"]
 texture = ExtResource("2_0phph")
@@ -2711,3 +2712,10 @@ limit_right = 608
 limit_bottom = 608
 script = ExtResource("4_akbhy")
 tilemap = NodePath("../..")
+
+[node name="Snake" parent="TileMap" node_paths=PackedStringArray("endPoint") instance=ExtResource("5_uyc3f")]
+position = Vector2(360, 176)
+endPoint = NodePath("Marker2D")
+
+[node name="Marker2D" type="Marker2D" parent="TileMap/Snake"]
+position = Vector2(-40, 80)
